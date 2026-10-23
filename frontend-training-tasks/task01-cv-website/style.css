@@ -1,0 +1,353 @@
+
+/* ---------- Base Styles ---------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --navy: #172b4d;
+  --blue: #315ca8;
+  --light-blue: #dbeafe;
+  --text: #334155;
+  --muted: #64748b;
+  --border: #e2e8f0;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #edf2f8;
+  color: var(--text);
+  line-height: 1.7;
+  padding: 35px 18px;
+}
+
+/* ---------- Main CV Layout ---------- */
+.cv {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 310px minmax(0, 1fr);
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 15px 45px rgba(23, 43, 77, 0.12);
+}
+
+/* ---------- Sidebar ---------- */
+.sidebar {
+  padding: 38px 27px;
+  background: linear-gradient(160deg, #172b4d, #203d68);
+  color: #fff;
+}
+
+.profile-photo {
+  width: 125px;
+  height: 125px;
+  margin: 0 auto 20px;
+  display: block;
+  object-fit: cover;
+  border: 4px solid rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar h1 {
+  margin-bottom: 8px;
+  text-align: center;
+  font-size: 27px;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+.job-title {
+  margin-bottom: 32px;
+  color: #bfdbfe;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.sidebar section {
+  margin-bottom: 30px;
+}
+
+.sidebar h2 {
+  margin-bottom: 15px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #93c5fd;
+  color: #fff;
+  font-size: 16px;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+}
+
+/* ---------- Contact Information ---------- */
+.contact-list,
+.skills-list,
+.activity-list {
+  list-style: none;
+}
+
+.contact-list li {
+  margin-bottom: 15px;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.contact-list strong,
+.contact-list span,
+.contact-list a {
+  display: block;
+}
+
+.contact-list strong {
+  margin-bottom: 3px;
+  color: #bfdbfe;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.contact-list a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.contact-list a:hover {
+  color: #bfdbfe;
+  text-decoration: underline;
+}
+
+/* ---------- Skills ---------- */
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skills-list li {
+  padding: 6px 10px;
+  border: 1px solid rgba(191, 219, 254, 0.25);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #f1f5f9;
+  font-size: 12px;
+}
+
+/* ---------- Co-Curricular Activities ---------- */
+.activity-list li {
+  position: relative;
+  margin-bottom: 12px;
+  padding-left: 16px;
+  color: #e2e8f0;
+  font-size: 13px;
+}
+
+.activity-list li::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #93c5fd;
+}
+
+/* ---------- Main Content ---------- */
+.content {
+  min-width: 0;
+  padding: 42px 40px;
+}
+
+.content section {
+  margin-bottom: 32px;
+}
+
+.content h2 {
+  position: relative;
+  margin-bottom: 17px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+  color: var(--navy);
+  font-size: 20px;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+}
+
+.content h2::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 65px;
+  height: 3px;
+  border-radius: 5px;
+  background: var(--blue);
+}
+
+.content p {
+  font-size: 14px;
+}
+
+.item {
+  margin-bottom: 23px;
+  padding-left: 17px;
+  border-left: 2px solid #dbeafe;
+}
+
+.item:last-child {
+  margin-bottom: 0;
+}
+
+.item h3 {
+  color: #244776;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.meta {
+  margin: 5px 0 9px;
+  color: var(--muted);
+  font-size: 12px !important;
+}
+
+.year {
+  display: inline-block;
+  margin-left: 5px;
+  color: #315ca8;
+  font-weight: 600;
+}
+
+.item ul {
+  margin: 8px 0 0 18px;
+}
+
+.item li {
+  margin-bottom: 6px;
+  padding-left: 3px;
+  font-size: 13px;
+}
+
+.item li::marker {
+  color: var(--blue);
+}
+
+/* ---------- Footer ---------- */
+.cv-footer {
+  margin-top: 12px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+  color: #94a3b8;
+  font-size: 11px;
+  text-align: center;
+}
+
+/* ---------- Tablet ---------- */
+@media (max-width: 800px) {
+  body {
+    padding: 20px 12px;
+  }
+
+  .cv {
+    grid-template-columns: 250px minmax(0, 1fr);
+  }
+
+  .sidebar {
+    padding: 30px 20px;
+  }
+
+  .content {
+    padding: 32px 25px;
+  }
+
+  .sidebar h1 {
+    font-size: 23px;
+  }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 620px) {
+  body {
+    padding: 10px;
+  }
+
+  .cv {
+    grid-template-columns: minmax(0, 1fr);
+    border-radius: 12px;
+  }
+
+  .sidebar {
+    padding: 30px 24px;
+  }
+
+  .sidebar section {
+    max-width: 420px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .content {
+    padding: 28px 22px;
+  }
+
+  .content h2 {
+    font-size: 18px;
+  }
+
+  .item h3 {
+    font-size: 15px;
+  }
+}
+
+/* ---------- Print / Save as PDF ---------- */
+@media print {
+  @page {
+    size: A4;
+    margin: 10mm;
+  }
+
+  body {
+    padding: 0;
+    background: #fff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .cv {
+    max-width: none;
+    grid-template-columns: 29% 71%;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .sidebar {
+    padding: 22px 16px;
+  }
+
+  .content {
+    padding: 25px 22px;
+  }
+
+  .profile-photo {
+    width: 90px;
+    height: 90px;
+  }
+
+  .content section,
+  .item {
+    break-inside: avoid;
+  }
+
+  .contact-list li,
+  .activity-list li {
+    font-size: 11px;
+  }
+
+  .skills-list li {
+    font-size: 10px;
+  }
+}
