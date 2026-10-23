@@ -1,0 +1,38 @@
+body {
+  background-color: #fff7e0;      /* page background color */
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 40px;                  /* spacing around the page */
+  line-height: 1.6;
+}
+
+h1 {
+  color: #6c3fd6;                 /* heading color */
+  margin-bottom: 20px;
+}
+
+p {
+  margin-bottom: 15px;            /* spacing between paragraphs */
+  color: #333;
+}
+
+img {
+  display: block;
+  margin: 20px 0;
+  border-radius: 10px;
+}
+
+/* link styled like a button */
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #6c3fd6;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background-color: #4b2aa3;
+}

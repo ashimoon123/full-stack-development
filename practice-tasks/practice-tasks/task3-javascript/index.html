@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 3 - JavaScript</title>
+</head>
+<body>
+  <h1>JavaScript Button</h1>
+
+  <button id="welcomeBtn">Click Me</button>
+  <p id="message"></p>
+
+  <script>
+    const button = document.getElementById("welcomeBtn");
+    const message = document.getElementById("message");
+
+    button.addEventListener("click", function () {
+      message.textContent = "Welcome! Your JavaScript is working.";
+    });
+  </script>
+</body>
+</html>
