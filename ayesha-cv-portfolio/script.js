@@ -1,7 +1,10 @@
 const navLinks = document.querySelectorAll(".nav-link");
+const pageLinks = document.querySelectorAll("[data-page]");
 const pages = document.querySelectorAll(".page");
 const pageTitle = document.getElementById("pageTitle");
-const printBtn = document.getElementById("printBtn");
+const cvDialog = document.getElementById("cvDialog");
+const resumePhoto = document.getElementById("resumePhoto");
+const resumeInitials = document.getElementById("resumeInitials");
 const photoInput = document.getElementById("photoInput");
 const heroPhoto = document.getElementById("heroPhoto");
 const sidebarPhoto = document.getElementById("sidebarPhoto");
@@ -29,31 +32,81 @@ function showPage(pageId) {
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
-navLinks.forEach((link) => {
+pageLinks.forEach((link) => {
   link.addEventListener("click", (event) => {
     event.preventDefault();
     const pageId = link.dataset.page;
+    if (cvDialog.open) cvDialog.close();
     history.pushState({ pageId }, "", `#${pageId}`);
     showPage(pageId);
   });
 });
 
 window.addEventListener("popstate", () => {
+  if (cvDialog.open) cvDialog.close();
   showPage(location.hash.slice(1) || "home");
 });
 
 showPage(location.hash.slice(1) || "home");
 document.getElementById("year").textContent = new Date().getFullYear();
 
-printBtn.addEventListener("click", () => window.print());
+document.getElementById("openCvOptions").addEventListener("click", () => cvDialog.showModal());
+document.getElementById("closeCvOptions").addEventListener("click", () => cvDialog.close());
+cvDialog.addEventListener("click", (event) => {
+  if (event.target === cvDialog) cvDialog.close();
+});
+
+async function downloadResumePdf() {
+  const resumeDocument = document.getElementById("resumeDocument");
+  const downloadButtons = [document.getElementById("downloadCvPdf"), document.getElementById("resumeDownload")];
+
+  if (location.hash !== "#resume") history.pushState({ pageId: "resume" }, "", "#resume");
+  showPage("resume");
+  if (cvDialog.open) cvDialog.close();
+
+  if (typeof window.html2pdf !== "function") {
+    document.body.classList.add("printing-resume");
+    window.addEventListener("afterprint", () => document.body.classList.remove("printing-resume"), { once: true });
+    window.print();
+    return;
+  }
+
+  downloadButtons.forEach((button) => { button.disabled = true; });
+  resumeDocument.classList.add("pdf-export");
+  try {
+    await document.fonts.ready;
+    await Promise.all([...resumeDocument.querySelectorAll("img")].map((image) => image.decode().catch(() => {})));
+    await window.html2pdf().set({
+      margin: 0,
+      filename: "Ayesha-Bibi-CV.pdf",
+      image: { type: "jpeg", quality: 0.98 },
+      html2canvas: { scale: 2, useCORS: true, backgroundColor: "#ffffff" },
+      jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
+      pagebreak: { mode: ["avoid-all", "css", "legacy"] }
+    }).from(resumeDocument).save();
+    if (cvDialog.open) cvDialog.close();
+  } catch (error) {
+    console.error("CV PDF could not be generated.", error);
+    alert("The PDF could not be generated. Please try again.");
+  } finally {
+    resumeDocument.classList.remove("pdf-export");
+    downloadButtons.forEach((button) => { button.disabled = false; });
+  }
+}
+
+document.getElementById("downloadCvPdf").addEventListener("click", downloadResumePdf);
+document.getElementById("resumeDownload").addEventListener("click", downloadResumePdf);
 
 function displayPhoto(src) {
   heroPhoto.src = src;
   sidebarPhoto.src = src;
+  resumePhoto.src = src;
   heroPhoto.hidden = false;
   sidebarPhoto.hidden = false;
+  resumePhoto.hidden = false;
   heroInitials.hidden = true;
   sidebarInitials.hidden = true;
+  resumeInitials.hidden = true;
 }
 
 try {
