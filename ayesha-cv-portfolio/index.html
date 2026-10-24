@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ayesha Nasir's personal CV portfolio website.">
+  <title>Ayesha Nasir | CV Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#home" aria-label="Ayesha portfolio home">
+        <span class="brand-mark">AN</span>
+        <span><strong>Ayesha Nasir</strong><small>Personal Portfolio</small></span>
+      </a>
+
+      <div class="mini-profile">
+        <div class="avatar-wrap">
+          <img id="sidebarPhoto" alt="Ayesha Nasir profile photo" hidden>
+          <div class="avatar-initials" id="sidebarInitials">AN</div>
+        </div>
+        <h2>Ayesha Nasir</h2>
+        <p>Web Developer &amp; UI/UX Enthusiast</p>
+      </div>
+
+      <nav class="navigation" aria-label="Main navigation">
+        <a class="nav-link active" href="#home" data-page="home"><span>⌂</span> Home</a>
+        <a class="nav-link" href="#about" data-page="about"><span>◉</span> About</a>
+        <a class="nav-link" href="#education" data-page="education"><span>▤</span> Education</a>
+        <a class="nav-link" href="#skills" data-page="skills"><span>✦</span> Technical Skills</a>
+        <a class="nav-link" href="#contact" data-page="contact"><span>✉</span> Contact</a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <span class="online-dot"></span> Open to learning and opportunities
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">MY PERSONAL CV</p>
+          <h1 id="pageTitle">Home</h1>
+        </div>
+        <button class="print-btn" id="printBtn" type="button">Print / Save PDF</button>
+      </header>
+
+      <section class="page active" id="home" data-title="Home">
+        <div class="hero-card">
+          <div class="hero-copy">
+            <span class="availability"><span class="online-dot"></span> Open to learning &amp; opportunities</span>
+            <h2>Hi, I'm <span>Ayesha Nasir</span></h2>
+            <h3>Web Developer &amp; UI/UX Enthusiast</h3>
+            <p class="hero-description">
+              I enjoy building responsive, user-friendly websites and turning ideas
+              into clear digital experiences. I am continually growing my skills in
+              web development, design, and computer science.
+            </p>
+            <div class="hero-actions">
+              <a class="button primary" href="#skills">Explore My Skills <span>↗</span></a>
+              <a class="button secondary" href="#contact">Contact Me</a>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <div class="hero-avatar">
+              <img id="heroPhoto" alt="Ayesha Nasir profile photo" hidden>
+              <div id="heroInitials" class="hero-initials">AN</div>
+            </div>
+            <div class="photo-badge photo-badge-top"><span>Focus</span><strong>Web Development</strong></div>
+            <div class="photo-badge photo-badge-bottom"><span>Interest</span><strong>UI/UX Design</strong></div>
+            <label class="upload-photo" for="photoInput">Change photo</label>
+            <input id="photoInput" type="file" accept="image/*" hidden>
+          </div>
+        </div>
+      </section>
+
+      <section class="page" id="about" data-title="About" hidden>
+        <div class="about-heading">
+          <p class="eyebrow">ABOUT ME</p>
+          <h2>Thoughtful design.<br>Useful digital experiences.</h2>
+          <p>A Computer Science student building a strong foundation in web development and user-focused design.</p>
+        </div>
+        <div class="about-layout">
+          <article class="about-card">
+            <h3>My Background</h3>
+            <p>I am Ayesha Nasir, a Computer Science student and aspiring web developer. I enjoy creating clean, responsive interfaces and learning how thoughtful design can make software easier to use.</p>
+            <p>My interests include front-end development and UI/UX design. I am building practical skills with modern web technologies while continuing to grow my computer science foundations.</p>
+            <p>I value clear communication, steady learning, and the small details that make a digital experience feel considered.</p>
+          </article>
+          <aside class="details-card" aria-label="Quick details">
+            <h3>Quick Details</h3>
+            <dl>
+              <div><dt>Degree</dt><dd>BS Computer Science</dd></div>
+              <div><dt>Focus</dt><dd>Web Development &amp; UI/UX</dd></div>
+              <div><dt>Location</dt><dd>Pakistan</dd></div>
+              <div><dt>Currently learning</dt><dd>HTML, CSS, JavaScript, Python, and MySQL</dd></div>
+            </dl>
+          </aside>
+        </div>
+      </section>
+
+      <section class="page" id="education" data-title="Education" hidden>
+        <div class="page-intro">
+          <span class="pill">MY LEARNING JOURNEY</span>
+          <h2>Education</h2>
+          <p>My academic background and ongoing learning journey.</p>
+        </div>
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="timeline-icon">🎓</div>
+            <div class="timeline-content">
+              <span class="timeline-label">Undergraduate</span>
+              <h3>BS Computer Science</h3>
+              <p>Building a foundation in computing, programming, and software development.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="page" id="skills" data-title="Technical Skills" hidden>
+        <div class="page-intro">
+          <span class="pill">WHAT I WORK WITH</span>
+          <h2>Technical Skills</h2>
+          <p>Tools and technologies I have worked with or am learning.</p>
+        </div>
+        <div class="skills-grid">
+          <article class="skill-card"><div class="skill-icon orange">5</div><h3>HTML5</h3><p>Semantic page structure</p></article>
+          <article class="skill-card"><div class="skill-icon blue">3</div><h3>CSS3</h3><p>Responsive layouts and styling</p></article>
+          <article class="skill-card"><div class="skill-icon yellow">JS</div><h3>JavaScript</h3><p>Interactive web experiences</p></article>
+          <article class="skill-card"><div class="skill-icon green">Py</div><h3>Python</h3><p>Programming fundamentals</p></article>
+          <article class="skill-card"><div class="skill-icon dark">Git</div><h3>Git</h3><p>Version control</p></article>
+          <article class="skill-card"><div class="skill-icon dark">GH</div><h3>GitHub</h3><p>Code hosting and collaboration</p></article>
+          <article class="skill-card"><div class="skill-icon purple">F</div><h3>Figma</h3><p>UI/UX design and prototyping</p></article>
+          <article class="skill-card"><div class="skill-icon teal">DB</div><h3>MySQL</h3><p>Relational database basics</p></article>
+        </div>
+      </section>
+
+      <section class="page" id="contact" data-title="Contact" hidden>
+        <div class="page-intro">
+          <span class="pill">LET'S CONNECT</span>
+          <h2>Contact Me</h2>
+          <p>Feel free to reach out for collaboration, learning, or professional opportunities.</p>
+        </div>
+        <div class="contact-layout">
+          <div class="contact-card">
+            <div class="contact-icon">✉</div><div><span>Email</span><a href="mailto:ayshanasir234@email.com">ayshanasir234@email.com</a></div>
+          </div>
+          <div class="contact-card">
+            <div class="contact-icon">☎</div><div><span>Phone</span><a href="tel:+923260426248">+92 326 0426248</a></div>
+          </div>
+          <div class="contact-card">
+            <div class="contact-icon">⌖</div><div><span>Location</span><p>Pakistan</p></div>
+          </div>
+        </div>
+        <div class="contact-cta">
+          <h3>Have a project or idea?</h3>
+          <p>I would be happy to connect and learn together.</p>
+          <a class="button primary" href="mailto:ayshanasir234@email.com">Send an Email <span>↗</span></a>
+        </div>
+      </section>
+
+      <footer class="main-footer">
+        <span>© <span id="year"></span> Ayesha Nasir</span>
+        <span>Designed with care <b>♥</b></span>
+      </footer>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
