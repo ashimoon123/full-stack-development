@@ -2,6 +2,7 @@ const navLinks = document.querySelectorAll(".nav-link");
 const pageLinks = document.querySelectorAll("[data-page]");
 const pages = document.querySelectorAll(".page");
 const pageTitle = document.getElementById("pageTitle");
+const themeSwitch = document.getElementById("themeSwitch");
 const cvDialog = document.getElementById("cvDialog");
 const resumePhoto = document.getElementById("resumePhoto");
 const resumeInitials = document.getElementById("resumeInitials");
@@ -10,6 +11,25 @@ const heroPhoto = document.getElementById("heroPhoto");
 const sidebarPhoto = document.getElementById("sidebarPhoto");
 const heroInitials = document.getElementById("heroInitials");
 const sidebarInitials = document.getElementById("sidebarInitials");
+
+function setTheme(isDark) {
+  document.documentElement.dataset.theme = isDark ? "dark" : "light";
+  themeSwitch.checked = isDark;
+  themeSwitch.closest(".theme-toggle").classList.toggle("is-dark", isDark);
+  try {
+    localStorage.setItem("ayeshaPortfolioTheme", isDark ? "dark" : "light");
+  } catch (error) {
+    console.warn("Theme preference could not be saved.", error);
+  }
+}
+
+try {
+  setTheme(localStorage.getItem("ayeshaPortfolioTheme") === "dark");
+} catch (error) {
+  setTheme(false);
+}
+
+themeSwitch.addEventListener("change", () => setTheme(themeSwitch.checked));
 
 function showPage(pageId) {
   const validPage = document.getElementById(pageId);
