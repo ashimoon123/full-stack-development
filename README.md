@@ -1,1 +1,1 @@
-my full stack traing projects
+my full stack traning projects
