@@ -78,4 +78,4 @@ The selected picture is saved locally in the current browser using `localStorage
 
 ## Limitations
 
-This is a front-end portfolio only. It has no backend, database, contact form submission service, or server-side authentication.
+This is a front-end portfolio only. It has no backend, contact form submission service, or server-side authentication.
